@@ -26,7 +26,9 @@ Jumper wires
 Optional: 1x White or yellow LED (for the street lamp)
 Optional: 1x Push button (for switching saved stops)
 
-BUT IF YOU ARE ABLE TO CONVERT THIS TO YOUR PUBLIC TRANSPORT SYSTEM, PLEASE SHARE THE CODE! :D I would love to include adaptations for other cities. Contact me here: info@bojler.org.
+BUT IF YOU ARE ABLE TO CONVERT THIS TO YOUR PUBLIC TRANSPORT SYSTEM, PLEASE SHARE THE CODE! :D I would love to include adaptations for other cities. Contact me here: 
+
+info@bojler.org.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 **CZ:**
@@ -53,5 +55,7 @@ Propojovací kablíky (Wires)
 Volitelné: 1x bílá nebo žlutá LED (pouliční lampa)
 Volitelné: 1x tlačítko (přepínání zastávek)
 
-POKUD BY SE ALE NĚKOMU POVEDLO PŘIZPŮSOBIT KÓD NA MHD V JEHO MĚSTĚ, URČITĚ SE PODĚLTE! Rád další města začlením do projektu. Pokud máte dotazy nebo vylepšení, kontaktujte mě na info@bojler.org.
+POKUD BY SE ALE NĚKOMU POVEDLO PŘIZPŮSOBIT KÓD NA MHD V JEHO MĚSTĚ, URČITĚ SE PODĚLTE! Rád další města začlením do projektu. Pokud máte dotazy nebo vylepšení, kontaktujte mě na: 
+
+info@bojler.org.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
