@@ -1,0 +1,572 @@
+﻿Stop ID;Název zastávky
+1001;Achtelky
+1002;Akátky
+1003;Antonína Procházky
+1004;Adamcova
+1006;Antonínská
+1007;Anthropos
+1008;Arbesova
+1010;Airport Park
+1011;Autobusové nádraží
+1012;Bartákova
+1013;Barvičova
+1014;Obřany, Babická
+1015;Bartolomějská
+1016;Bednářova
+1017;Bellova
+1018;Bělohorská
+1020;Benešova tř. hotel GRAND
+1021;Běloruská
+1023;Bieblova
+1024;Bidláky
+1026;Bílá hora
+1027;Bílovická
+1028;Blažkova
+1031;Bohunická
+1033;Borodinova
+1034;Borovník
+1036;Bořetická
+1037;Bosonohy
+1038;Botanická
+1040;Bratislavská
+1041;Bráfova
+1042;Branka
+1043;Brechtova
+1046;Brněnky
+1047;Burianovo náměstí
+1048;Buzkova
+1051;Bystrc, přístav
+1052;Bzenecká
+1053;Celní
+1055;Čápkova
+1057;Čechyňská
+1058;Čejkovická
+1061;Čermákova
+1062;Černého
+1063;Černohorská
+1064;Černovická terasa I
+1065;Černovická terasa II
+1066;Černovická
+1067;Černovické nábřeží
+1068;Černovičky
+1069;Čertova rokle
+1070;Červený kopec
+1071;Červený písek
+1072;Kr. Pole, Červinkova
+1073;Česká
+1077;Čtvery hony
+1078;Čtvrtě
+1082;Dělnický dům
+1083;Depo ČD
+1085;Díly
+1086;Dětská nemocnice
+1087;Divišova čtvrť
+1088;Dobrovského
+1091;Dohnalova
+1092;Dolní Heršpice
+1095;Drážní
+1096;Drdy
+1097;Dunajská
+1098;Dvorska, smyčka
+1100;Erbenova
+1101;Dvůr v lese
+1102;Bystrc, Ečerova
+1103;Elplova
+1104;Edisonova
+1105;Ericha Roučky
+1106;Faměrovo náměstí
+1107;Filipova
+1108;Filkukova
+1111;Fillova
+1112;Fügnerova
+1113;Gajdošova
+1114;Francouzská
+1116;Geislerova
+1117;Glinkova
+1118;Glocova
+1121;Grohova
+1122;Gruzínská
+1127;Hájecká
+1128;Halasovo náměstí
+1130;Hamerláky
+1131;Hanácká
+1132;Lesná, Haškova
+1136;Havránkova
+1137;Heinrichova
+1138;Heleny Malířové
+1139;Helenčina
+1141;Heršpická
+1142;Hlaváčova
+1143;Hlavní
+1144;Hladíkova
+1146;Hlavní nádraží
+1147;Hluboká
+1148;Hněvkovského
+1149;Holandská
+1150;Högrova
+1151;Holásky
+1152;Holzova
+1153;Horácké náměstí
+1154;Holásecká
+1155;Horská
+1156;Horní Heršpice
+1157;Horníkova
+1160;Hradiska
+1161;Hoštická
+1162;Houbalova
+1163;Hrad Špilberk
+1165;Hrad Veveří, přístaviště
+1166;Hrnčířská
+1167;Hudcova
+1168;Humenná
+1171;Husitská
+1172;Hutařova
+1173;Hviezdoslavova
+1176;Hybešova
+1177;Schodová
+1178;Chaloupky
+1181;Charvatská
+1182;Chrlice, smyčka
+1183;Chrlice, nádraží
+1185;Chvalovka
+1186;Chrlická
+1187;Chrlické náměstí
+1189;Globus
+1191;Ivanovické náměstí
+1193;Janáčkovo divadlo
+1195;Jarmily Kurandové
+1196;Jandáskova
+1197;Jarní ČD
+1198;Jehnice
+1202;Jemelkova
+1203;Jílkova
+1204;Jezerní
+1206;Jindřichova
+1207;Jiránkova
+1208;Líšeň, Jírova
+1209;Jírovcova
+1211;Jugoslávská
+1212;Juliánov
+1213;Jundrov
+1214;Jundrovský most
+1215;Jundrovská
+1216;Jundrov, hřiště
+1217;Vozovna Komín
+1218;Jungmannova
+1221;Kamechy
+1222;Kamenice
+1223;Kamenný vrch
+1226;Kamenolom
+1227;Karpatská
+1228;Kampelíkova
+1230;Kavčí
+1231;Karlova
+1232;Karolíny Světlé
+1233;Kartouzská
+1235;Soběšice, Klarisky
+1236;Kejbaly
+1237;Kleštínek
+1238;Klicperova
+1241;Kluchova
+1242;Klusáčkova
+1246;Kociánka
+1248;Kohoutovice, hájenka
+1251;Kohoutovická
+1252;Kolejní
+1256;Komárov
+1257;Komenského náměstí
+1258;Komín, sídliště
+1261;Komín, smyčka
+1262;Konečného náměstí
+1263;Koniklecová
+1266;Konopná
+1267;Kopce
+1271;Körnerova
+1272;Kořískova
+1273;Kosmonautů
+1275;Košuličova
+1277;Kotlanova
+1278;Kovářská
+1279;Kounicovy koleje
+1280;Kouty
+1281;Kozí horka, přístaviště
+1282;Králova
+1283;Královka
+1286;Královo Pole, nádraží
+1288;Královopolská strojírna
+1291;Krásného
+1292;Krejčího
+1293;Krematorium
+1296;Kristenova
+1297;Kroměřížská
+1298;Kronova
+1300;Křehlíkova
+1301;Křídlovická
+1302;Křivánkovo náměstí
+1307;Křížkovského
+1308;Kšírova
+1311;Kubelíkova
+1312;Kubíčkova
+1313;Kuldova
+1316;Kulkova
+1317;Kupkova
+1318;Kurská
+1319;K terminálu
+1320;Květná
+1321;Kyjevská
+1322;Labská
+1323;Langrova
+1326;Laštůvkova
+1328;Lerchova
+1331;Lesná, nádraží
+1332;Lesní
+1333;Lesní školka
+1334;Letiště - logistický areál
+1335;Letiště - služební vstup
+1336;Lesnická
+1337;Letiště Tuřany
+1338;Letovická
+1339;Letecká
+1341;Libušina třída
+1342;Libušino údolí
+1343;ARENA BRNO
+1345;Lísky
+1346;Líšeň, hřbitov
+1347;Líšeňská
+1348;Loosova
+1350;Macháčkova
+1351;Mácova
+1352;Makovského náměstí
+1353;Malá Klajdovka
+1354;Malá
+1355;Malinová
+1356;Malečkova
+1357;Malinovského náměstí
+1358;Maloměřický most
+1361;Mariánské náměstí
+1362;Mariánské údolí
+1366;Marie Pujmanové
+1367;Maříkova
+1368;Masarova
+1371;Náměstí Míru
+1372;Masná
+1375;Mečkov, přístaviště
+1376;Medlánky
+1377;Medlánky, škola
+1378;Mendlovo náměstí
+1381;Merhautova
+1382;Mikulčická
+1383;Mikulovská
+1384;Líšeň, Mifkova
+1385;Mlýnská
+1386;Mírová
+1387;Modřická
+1388;Mojmírovo náměstí
+1389;Modřická cihelna
+1391;Mokrá Hora
+1392;Molákova
+1393;Moravanská
+1396;Moravanské lány
+1397;Moravské náměstí
+1398;Mostecká
+1399;Moskalykova
+1400;Mozolky
+1401;Mošnova
+1403;Mutěnická
+1406;Muzeum dopravy
+1407;Myslivecký stadion
+1408;Myslivna
+1409;Myslivní
+1411;Mýtná
+1412;Na kovárně
+1414;Nadační
+1415;NC Královo Pole
+1416;Nálepkova
+1417;Náměstí 28. dubna
+1418;Náměstí 28. října
+1421;Náměstí Karla IV.
+1422;Náměstí Republiky
+1423;Náměstí Svobody
+1426;Nám.Svornosti
+1428;Nemocnice u sv. Anny
+1429;Nemocnice Bohunice
+1430;Nemocnice Milosrdných bratří
+1431;Nerudova
+1433;Neumannova
+1434;Vozovna Husovice
+1435;Novomoravanská
+1436;Nové sady
+1437;Nové sady - smyčka
+1438;Novolíšeňská
+1440;OC Futurum
+1441;Obecká
+1442;Obilní trh
+1443;Oblá
+1447;Obřanská - u školy
+1448;Obřanský most
+1452;Obřany, sídliště
+1453;Olbrachtovo náměstí
+1455;Olomoucká - u školy
+1457;Olšanského
+1461;Ondrouškova
+1462;Optátova
+1463;Opuštěná
+1466;Ořechovská
+1467;Ořešín
+1468;Ořešínská
+1472;Osová
+1473;Otakara Ševčíka
+1475;Palackého vrch
+1476;Palackého náměstí
+1477;Pálavské náměstí
+1478;Pavlíkova
+1479;Panská lícha
+1481;Pavlovská
+1483;Pionýrská
+1485;Pluháčkova
+1487;Pisárky
+1488;Pod dálnicí
+1489;Podbělová
+1490;Pod Jurankou
+1491;Podkomorská
+1492;Pod nemocnicí
+1493;Podlesí
+1494;Pod Mniší horou
+1495;Pod Tuřankou
+1496;Podlomní
+1497;Podolská
+1498;Podsednická
+1499;Podnikatelská
+1500;Pod Trnůvkou
+1501;Podstránská
+1502;Podveská
+1503;Podzimní
+1504;Pod Hády
+1506;Poliklinika Lesná
+1511;Popelova
+1512;Poříčí
+1513;Pratecká
+1514;Pražákova
+1515;Pražákova - obchodní centrum
+1516;Pražská
+1517;Preslova
+1518;Prodloužená
+1520;Průmyslová
+1521;Proškovo náměstí
+1522;Provazníkova
+1523;Prušánecká
+1525;Přemyslovo náměstí
+1526;Příjezdová
+1527;Přístaviště
+1528;Přívrat
+1530;Přízřenice, smyčka
+1531;Přízřenice
+1532;Raisova
+1533;Ráječek
+1535;Reissigova
+1536;Rakovec
+1537;Bystrc, Rakovecká
+1538;Revoluční
+1539;Renčova
+1540;Ríšova
+1541;Riviéra
+1542;Rokle, přístaviště
+1543;Rolencova
+1544;Rosického náměstí
+1545;Rokle, přístaviště
+1546;Rotreklova
+1547;Roviny
+1548;Rozárka
+1549;Rozhraní
+1550;Ruda
+1551;Růženin dvůr
+1552;Rybkova
+1553;Řečkovice
+1554;Rozcestí
+1556;Řečkovice, hřbitov
+1557;Řečkovice, nádraží
+1559;Říčanská
+1561;Řezáčova
+1562;Řípská
+1563;Psychiatrická nemocnice
+1564;Sadová
+1565;Sazenice
+1566;Semilasso
+1567;Skácelova
+1568;Skalní
+1570;Skandinávská
+1571;Skály
+1572;Skrejš
+1573;Slatina, nádraží
+1576;Slatina, rozcestí
+1577;Slatina, sídliště
+1578;Sladová
+1580;Slatinka
+1581;Areál Slatina
+1582;Slavíčkova
+1583;Slévárna Heunisch
+1586;Slovanské náměstí
+1587;Smetanova
+1591;Sochorova
+1592;Sokolnická
+1593;Sokolské koupaliště
+1594;Sokolova
+1595;Sono Centrum
+1596;Soukenická
+1597;Soukopova
+1598;Spáčilova
+1601;Spojovací
+1602;Sportovní
+1603;Správa dálnic
+1606;Srbská
+1607;Stamicova
+1608;Stará dálnice
+1610;Stará nemocnice
+1611;Stará osada
+1612;Staré Černovice
+1613;Staré letiště
+1616;Starý Lískovec
+1618;Stránská skála
+1619;Str.skála smyčka
+1621;Stránského
+1622;Strážní
+1623;Strnadova
+1624;Studentská
+1626;Sušilova
+1627;Svah
+1628;Svatopetrská
+1631;Svatoplukova
+1632;Svážná
+1633;Svratecká
+1635;Šelepova
+1636;Šárka
+1637;Šilingrovo náměstí
+1638;Šimáčkova
+1639;Škrobárenská
+1640;Šmahova
+1641;Škroupova
+1642;Špačkova
+1643;Štefánikova
+1644;Šromova
+1646;Štefánikova čtvrť
+1647;Štěpánkova
+1648;Štouračova
+1651;Štursova
+1652;Šumavská
+1653;Švermova
+1654;Švédské valy
+1657;Tábor
+1658;Talichova
+1659;Technologický park
+1660;Technická
+1661;Tererova
+1662;Škola Charbulova
+1663;Tkalcovská
+1664;Technické muzeum
+1665;Těžební
+1666;Točná
+1667;Tomanova
+1668;Tomkovo náměstí
+1669;Tomáškova
+1670;Tichého
+1671;Tovární
+1672;Tranzitní plynovod
+1673;Traťová
+1676;Trávníčkova
+1677;Tržní
+1681;Tuřany, smyčka
+1682;Tvrdého
+1683;Tylova
+1684;U buku
+1685;U kotvy
+1686;U ARENY
+1687;U hřiště
+1689;Kníničky, U Luhu
+1690;U památníku
+1691;U rozvodny
+1692;U tunýlku
+1693;U viaduktu
+1694;U jezírka
+1696;Brno, ÚAN Zvonařka
+1698;Údolíček
+1699;Univerzitní kampus
+1701;Ukrajinská
+1703;Ústřední hřbitov
+1706;Ústř. hřbitov - smyčka
+1707;Útěchov
+1711;Útěchovská
+1712;Úvoz
+1713;Uzavřená
+1714;Uzbecká
+1716;Úzká
+1717;V aleji
+1718;V rejích
+1719;V Újezdech
+1721;Václavská
+1722;Valašská
+1723;Vaňkovo náměstí
+1726;Velatická
+1727;Velká Klajdovka
+1728;Velodrom
+1731;Venhudova
+1732;Veslařská
+1733;Vědeckotechnický park
+1734;Veverská Bítýška, přístaviště
+1737;Vinohradská
+1738;Vítězná
+1739;Vlastimila Pecha
+1741;Vlárská
+1742;Vlčkova
+1743;Vlčnovská
+1746;Vlhká
+1747;Vlkova
+1748;Vltavská
+1751;Vojtova
+1752;Vondrákova
+1753;Voříškova
+1756;Vozovna Medlánky
+1757;Vozovna Slatina
+1758;Vrázova
+1761;Vsetínská
+1762;Všetičkova
+1763;Vyhlídalova
+1766;Vychodilova
+1767;Výletní
+1768;Výstaviště - hlavní vstup
+1769;Výstaviště - vstup G2
+1770;Výstaviště - 4. brána
+1771;Wollmanova
+1772;Za křížem
+1773;Vojenská nem.
+1774;Za hřbitovem
+1776;Zahradníkova
+1777;Záhřebská
+1778;Záhumenice
+1779;Západní brána
+1780;Zaoralova
+1781;Zámecká
+1782;Zdráhalova
+1784;Zelný trh
+1785;Zemská knihovna
+1786;Zemědělská
+1787;Zetor - silnice
+1788;Zetor - smyčka
+1791;Zimní I
+1792;Zimní II
+1793;Za Lužánkami
+1794;ZKL
+1796;Bystrc, ZOO
+1798;Zvonařka
+1800;Žebětín, hřbitov
+1802;Žebětínský rybník
+1803;Žebětín, škola
+1806;Žebětínská
+1807;Železniční
+1808;Železniční stavitelství
+1809;Židenice, nádraží
+1810;Židovský hřbitov
+1811;Židenice, kasárna
+1812;Žilkova
+1813;Žitná
+1814;Životského
+1816;Žlutý kopec
