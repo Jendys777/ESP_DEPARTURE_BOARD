@@ -1,10 +1,10 @@
-# ESP_DEPARTURE_BOARD
-This is my little handy tabletop departure board. I can finally know when the bus is leaving and never miss it again. 
+_# ESP_DEPARTURE_BOARD
+This is my little handy tabletop departure board. I can finally know when the bus is leaving and never miss it again. _
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-EN:
+**EN:**
 
-ESP32 Tabletop Departure Board (IDS JMK Edition)
+_ESP32 Tabletop Departure Board (IDS JMK Edition)_
 
 This is my handy tabletop departure board. I can finally know exactly when the bus is leaving and never miss it again! I was able to get it running with live data from my local public transport in Brno (IDS JMK). It was not easy, as the city doesn't make this simple, so the code directly parses HTML data from the transit portal.
 
@@ -29,9 +29,9 @@ Optional: 1x Push button (for switching saved stops)
 BUT IF YOU ARE ABLE TO CONVERT THIS TO YOUR PUBLIC TRANSPORT SYSTEM, PLEASE SHARE THE CODE! :D I would love to include adaptations for other cities. Contact me here: info@bojler.org.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-CZ
+**CZ:**
 
-ESP32 Stolní Odjezdová Tabule (IDS JMK)
+_ESP32 Stolní Odjezdová Tabule (IDS JMK)_
 
 Zdravím všechny! Tohle je moje šikovná stolní odjezdová tabule. Konečně vím, kdy mi to přesně jede, a už mi neujede bus před nosem. Tento projekt ocení hlavně Brňáci, protože se mi povedlo zprovoznit stahování živých dat z lokálního systému IDS JMK. Nebylo to úplně jednoduché, město k tomu nenabízí čisté API, takže kód přímo parsuje data z HTML portálu.
 
