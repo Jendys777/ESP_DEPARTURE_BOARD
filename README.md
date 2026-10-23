@@ -13,7 +13,7 @@ _ESP32 Tabletop Departure Board (IDS JMK Edition)_
 This is my handy tabletop departure board. I can finally know exactly when the bus is leaving and never miss it again! I was able to get it running with live data from my local public transport in Brno (IDS JMK). It was not easy, as the city doesn't make this simple, so the code directly parses HTML data from the transit portal.
 
 Main Features:
-Live Departures: Displays up to 4 upcoming connections. Long destination names smoothly scroll across the screen.
+* Live Departures: Displays up to 4 upcoming connections. Long destination names smoothly scroll across the screen.
 Web Interface: Clean, dark-mode web UI to configure everything directly from your phone or PC.
 Wi-Fi Manager: No hardcoded passwords. Connect to the board's setup Wi-Fi to enter your home network credentials via a captive portal.
 5 Stop Slots & Filtering: Save up to 5 favorite stops. For each stop, you can filter specific lines (e.g., show only bus 44). Switch between stops via the web UI or a physical button.
@@ -42,7 +42,7 @@ _ESP32 Stolní Odjezdová Tabule (IDS JMK)_
 Zdravím všechny! Tohle je moje šikovná stolní odjezdová tabule. Konečně vím, kdy mi to přesně jede, a už mi neujede bus před nosem. Tento projekt ocení hlavně Brňáci, protože se mi povedlo zprovoznit stahování živých dat z lokálního systému IDS JMK. Nebylo to úplně jednoduché, město k tomu nenabízí čisté API, takže kód přímo parsuje data z HTML portálu.
 
 Hlavní funkce:
-Živé odjezdy: Zobrazuje 4 nejbližší spoje. Dlouhé názvy cílových stanic plynule rotují.
+* Živé odjezdy: Zobrazuje 4 nejbližší spoje. Dlouhé názvy cílových stanic plynule rotují.
 Webové rozhraní: Čistý Dark Mode design pro kompletní nastavení tabule přes mobil nebo prohlížeč v PC.
 Wi-Fi Manager: Žádné heslo napevno v kódu. Tabule si při prvním spuštění vytvoří vlastní síť (Captive portal), přes kterou ji připojíte k domácí Wi-Fi.
 Paměť na 5 zastávek a filtry: Uložte si až 5 zastávek a u každé si vyfiltrujte jen linky, které vás zajímají. Přepínat mezi nimi lze přes web nebo fyzickým tlačítkem.
