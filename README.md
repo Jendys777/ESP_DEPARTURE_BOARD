@@ -1,7 +1,11 @@
-ESP_DEPARTURE_BOARD
+# ESP Departure Board
+
 This is my little handy tabletop departure board. I can finally know when the bus is leaving and never miss it again.
 
+<img src="./Final product foto.jpeg" alt="Final Product" width="500">
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
 **EN:**
 
 _ESP32 Tabletop Departure Board (IDS JMK Edition)_
@@ -18,13 +22,13 @@ Dynamic Footer: Cycles between the current time, date, local temperature, and sc
 Street Lamp Effect: A dedicated GPIO pin drives an optional LED with a realistic flickering street lamp effect that can be scheduled to run only at night.
 
 Hardware Required:
-ESP32 (38-pin DevKit recommended)
-0.96" OLED display (SSD1306, I2C)
-Jumper wires
-4x Self-tapping screws
-3mm hollow aluminum rod (available at local hobby markets)
-Optional: 1x White or yellow LED (for the street lamp)
-Optional: 1x Push button (for switching saved stops)
+* ESP32 (38-pin DevKit recommended)
+* 0.96" OLED display (SSD1306, I2C)
+* Jumper wires
+* 4x Self-tapping screws
+* 3mm hollow aluminum rod (available at local hobby markets)
+* Optional: 1x White or yellow LED (for the street lamp)
+* Optional: 1x Push button (for switching saved stops)
 
 BUT IF YOU ARE ABLE TO CONVERT THIS TO YOUR PUBLIC TRANSPORT SYSTEM, PLEASE SHARE THE CODE! :D I would love to include adaptations for other cities. Contact me here: 
 
@@ -47,13 +51,13 @@ Informační patička: Automaticky cykluje aktuální čas, datum, venkovní tep
 Efekt pouliční lampy: Volitelná LED dioda umí realisticky simulovat poblikávající starou výbojku. Lze nastavit, aby svítila/blikala pouze v noci.
 
 Potřebný hardware:
-ESP32 (doporučeno 38-pinové)
-0,96" OLED displej (SSD1306, I2C)
-Propojovací kablíky (Wires)
-4x samořezné šrouby
-3mm hliníková dutá tyč (z hobby marketu)
-Volitelné: 1x bílá nebo žlutá LED (pouliční lampa)
-Volitelné: 1x tlačítko (přepínání zastávek)
+* ESP32 (doporučeno 38-pinové)
+* 0,96" OLED displej (SSD1306, I2C)
+* Propojovací kablíky (Wires)
+* 4x samořezné šrouby
+* 3mm hliníková dutá tyč (z hobby marketu)
+* Volitelné: 1x bílá nebo žlutá LED (pouliční lampa)
+* Volitelné: 1x tlačítko (přepínání zastávek)
 
 POKUD BY SE ALE NĚKOMU POVEDLO PŘIZPŮSOBIT KÓD NA MHD V JEHO MĚSTĚ, URČITĚ SE PODĚLTE! Rád další města začlením do projektu. Pokud máte dotazy nebo vylepšení, kontaktujte mě na: 
 
