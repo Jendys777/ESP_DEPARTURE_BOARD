@@ -45,10 +45,15 @@ bool isDisplayOn = true;
 const char* dayNames[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
 // --- STREET LAMP MODES ---
-enum LampMode { LAMP_OFF, LAMP_ON, LAMP_SIM, LAMP_SIM_NIGHT, LAMP_SIM_DAY };
+enum LampMode { LAMP_OFF, LAMP_ON, LAMP_SIM, LAMP_SIM_NIGHT, LAMP_SIM_DAY, LAMP_ON_NIGHT, LAMP_ON_DAY };
 LampMode currentLampMode = LAMP_SIM;
-unsigned long lastFlickerTime = 0;
-unsigned long nextFlickerInterval = 50;
+
+// Nové premenné pre stavový automat lampy
+bool isFlickering = false;
+unsigned long flickerPhaseStart = 0;
+unsigned long lastFlickerStep = 0;
+unsigned long nextFlickerStepInterval = 50;
+unsigned long nextGlitchTime = 0;
 
 WebServer server(80);
 
@@ -143,6 +148,8 @@ void updateStreetlamp() {
     case LAMP_SIM: active = true; simulate = true; break;
     case LAMP_SIM_NIGHT: active = isNight; simulate = isNight; break;
     case LAMP_SIM_DAY: active = !isNight; simulate = !isNight; break;
+    case LAMP_ON_NIGHT: active = isNight; break;
+    case LAMP_ON_DAY: active = !isNight; break;
   }
 
   if (!active) {
@@ -155,18 +162,39 @@ void updateStreetlamp() {
   }
 
   unsigned long currentMillis = millis();
-  if (currentMillis - lastFlickerTime >= nextFlickerInterval) {
-    lastFlickerTime = currentMillis;
-    int r = random(0, 100);
-    if (r < 65) {
+
+  if (!isFlickering) {
+   
+    digitalWrite(LED_PIN, HIGH);
+
+    if (nextGlitchTime == 0) {
+      nextGlitchTime = currentMillis + random(1200000, 2400000); // 20 až 40 minút
+    }
+
+    if (currentMillis >= nextGlitchTime) {
+      isFlickering = true;
+      flickerPhaseStart = currentMillis;
+      lastFlickerStep = currentMillis;
+    }
+  } else {
+    if (currentMillis - lastFlickerStep >= nextFlickerStepInterval) {
+      lastFlickerStep = currentMillis;
+      
+      int r = random(0, 100);
+      if (r < 40) {
+        digitalWrite(LED_PIN, LOW);
+        nextFlickerStepInterval = random(30, 90);
+      } else {
+        digitalWrite(LED_PIN, HIGH);
+        nextFlickerStepInterval = random(40, 180);
+      }
+    }
+
+    
+    if (currentMillis - flickerPhaseStart > 1200) {
+      isFlickering = false;
       digitalWrite(LED_PIN, HIGH);
-      nextFlickerInterval = random(200, 1200);
-    } else if (r < 85) {
-      digitalWrite(LED_PIN, random(0, 2) ? HIGH : LOW);
-      nextFlickerInterval = random(15, 60);
-    } else {
-      digitalWrite(LED_PIN, LOW);
-      nextFlickerInterval = random(80, 350);
+      nextGlitchTime = currentMillis + (unsigned long)random(1200000, 2400000);
     }
   }
 }
@@ -220,35 +248,111 @@ void fetchWeather() {
   http.end();
 }
 
+// --- POMOCNÉ STREAM FUNKCE ---
+bool findInStream(WiFiClient *stream, const char *target) {
+  int len = strlen(target);
+  int matched = 0;
+  unsigned long start = millis();
+  while (millis() - start < 2000) { 
+    if (!stream->available()) {
+      delay(1);
+      if (!stream->connected()) break;
+      continue;
+    }
+    char c = stream->read();
+    if (c == target[matched]) {
+      matched++;
+      if (matched == len) return true;
+    } else {
+      matched = (c == target[0]) ? 1 : 0;
+    }
+  }
+  return false;
+}
+
+String readUntilString(WiFiClient *stream, const char *endStr) {
+  String res = "";
+  int endLen = strlen(endStr);
+  int matched = 0;
+  unsigned long start = millis();
+  while (millis() - start < 1500) {
+    if (!stream->available()) {
+      delay(1);
+      if (!stream->connected()) break;
+      continue;
+    }
+    char c = stream->read();
+    res += c;
+    if (c == endStr[matched]) {
+      matched++;
+      if (matched == endLen) {
+        res.remove(res.length() - endLen); // Odstraní samotný ukončovací tag z výsledku
+        return res;
+      }
+    } else {
+      matched = (c == endStr[0]) ? 1 : 0;
+    }
+    if (res.length() > 600) break; // Hard limit proti zahlcení paměti (např. při chybějícím tagu)
+  }
+  return res;
+}
+
+// --- PŘEPSANÁ FUNKCE ---
 void fetchLiveDepartures() {
   if (WiFi.status() != WL_CONNECTED) return;
 
   HTTPClient http;
-  http.setTimeout(2000); 
+  http.setTimeout(5000); 
   http.begin(apiURL);
   
-  if (http.GET() == 200) {
-    String payload = http.getString();
+  int httpCode = http.GET();
+  
+  if (httpCode == 200) {
+    WiFiClient *stream = http.getStreamPtr();
+    
+    // 1. Ochrana proti fragmentaci: alokujeme 15KB blok rovnou
+    String payload = "";
+    payload.reserve(15000); 
 
+    // 2. Bezpečné čtení s tvrdým limitem proti pádu na velkých uzlech
+    unsigned long start = millis();
+    while (stream->connected() && millis() - start < 5000) {
+      if (stream->available()) {
+        payload += (char)stream->read();
+        // Pokud délka přesáhne 15KB, ukončíme čtení. Hlavák se ořízne, ESP32 nespadne.
+        if (payload.length() > 14900) { 
+          break;
+        }
+      }
+    }
+
+    // 3. Parsování s ochranou proti přetečení indexů
     struct TempDep { String line; String dest; String time; int origIndex; };
     TempDep parsed[12];
     int parsedCount = 0;
-
     int index = 0;
+
     while (parsedCount < 12) {
       String lineTag = "width:40px; vertical-align:top\">";
       index = payload.indexOf(lineTag, index);
       if (index == -1) break;
       index += lineTag.length();
+      
       int endIndex = payload.indexOf("</div>", index);
+      if (endIndex == -1 || endIndex < index) break;
       String lineStr = payload.substring(index, endIndex);
       lineStr.trim();
 
       String destTag = "class=\"stationNameBox\"";
       index = payload.indexOf(destTag, endIndex);
       if (index == -1) break;
-      index = payload.indexOf(">", index) + 1;
+      
+      index = payload.indexOf(">", index);
+      if (index == -1) break;
+      index += 1;
+      
       endIndex = payload.indexOf("</div>", index);
+      if (endIndex == -1 || endIndex < index) break;
       String destStr = decodeHtmlEntities(payload.substring(index, endIndex));
       destStr.trim();
 
@@ -256,7 +360,9 @@ void fetchLiveDepartures() {
       index = payload.indexOf(timeTag, endIndex);
       if (index == -1) break;
       index += timeTag.length();
+      
       endIndex = payload.indexOf("</div>", index);
+      if (endIndex == -1 || endIndex < index) break;
       String timeStr = payload.substring(index, endIndex);
       timeStr.trim();
       timeStr.replace("min", "m");
@@ -266,6 +372,7 @@ void fetchLiveDepartures() {
       parsedCount++;
     }
 
+    // --- Filtrování a řazení ---
     TempDep selected[4];
     int selCount = 0;
     String currentFilter = stops[activeStop].filter;
@@ -305,18 +412,36 @@ void fetchLiveDepartures() {
       departures[i] = {selected[i].line, selected[i].dest, selected[i].time, 0, millis(), true};
     }
 
+    // --- Parsování výluky ---
+    // --- Parsování výluky ---
     int infoIndex = payload.indexOf("<div id=\"infoText\">");
     if (infoIndex != -1) {
       infoIndex += 19;
-      String rawInfo = payload.substring(infoIndex, payload.indexOf("</div>", infoIndex));
-      rawInfo.replace("<b>Dodatkové informace: </b>", "");
-      rawInfo = decodeHtmlEntities(rawInfo);
-      rawInfo.trim();
-      alertText = (rawInfo.length() > 3) ? rawInfo : "";
+      int infoEndIndex = payload.indexOf("</div>", infoIndex);
+      
+      if (infoEndIndex != -1 && infoEndIndex > infoIndex) {
+        String rawInfo = payload.substring(infoIndex, infoEndIndex);
+        
+        // Odstranění formátovacích tagů a nepotřebného textu
+        rawInfo.replace("<b>", "");
+        rawInfo.replace("</b>", "");
+        rawInfo.replace("Dodatkové informace:", "");
+        rawInfo.replace("Dodatkové informace: ", ""); 
+        
+        rawInfo = decodeHtmlEntities(rawInfo);
+        rawInfo.trim();
+        alertText = (rawInfo.length() > 3) ? rawInfo : "";
+      } else {
+        alertText = "";
+      }
     } else {
       alertText = "";
     }
+    
+  } else {
+    Serial.println("Chyba spojeni, kod: " + String(httpCode)); 
   }
+  
   http.end();
 }
 
@@ -400,12 +525,16 @@ void handleRoot() {
     case LAMP_SIM: html += "SIM (Constant Simulation)"; break;
     case LAMP_SIM_NIGHT: html += "SIM + TIME (Night only)"; break;
     case LAMP_SIM_DAY: html += "SIM - TIME (Day only)"; break;
+    case LAMP_ON_NIGHT: html += "ON + TIME (Night only)"; break;
+    case LAMP_ON_DAY: html += "ON - TIME (Day only)"; break;
   }
   html += "</b></p><div class='btn-group'>";
   html += "<a href='/led?mode=on' class='" + String(currentLampMode == LAMP_ON ? "active" : "") + "'>ON</a>";
   html += "<a href='/led?mode=sim' class='" + String(currentLampMode == LAMP_SIM ? "active" : "") + "'>SIM</a>";
   html += "<a href='/led?mode=sim_night' class='" + String(currentLampMode == LAMP_SIM_NIGHT ? "active" : "") + "'>SIM+TIME</a>";
   html += "<a href='/led?mode=sim_day' class='" + String(currentLampMode == LAMP_SIM_DAY ? "active" : "") + "'>SIM-TIME</a>";
+  html += "<a href='/led?mode=on_night' class='" + String(currentLampMode == LAMP_ON_NIGHT ? "active" : "") + "'>ON+TIME</a>";
+  html += "<a href='/led?mode=on_day' class='" + String(currentLampMode == LAMP_ON_DAY ? "active" : "") + "'>ON-TIME</a>";
   html += "<a href='/led?mode=off' class='" + String(currentLampMode == LAMP_OFF ? "active" : "") + "'>OFF</a>";
   html += "</div></fieldset>";
 
@@ -415,7 +544,7 @@ void handleRoot() {
   html += "</form></fieldset>";
 
   html += "<div style='margin-top: 30px; border-top: 1px solid #333; padding-top: 15px; text-align: center; font-size: 0.85em; color: #888;'>";
-  html += "ESP32 Departure Board by Bojler.<br><br>";
+  html += "ESP32 Departure Board by Bojler and KNC.<br><br>";
   html += "Be free to use and modify. If you modify it to your public transport system, please consider sharing your improvements, with me and i will add it to the repository.<br><br>";
   html += "Contact: <a href='mailto:info@bojler.org'>info@bojler.org</a> | Web: <a href='https://bojler.org' target='_blank'>bojler.org</a>";
   html += "</div></body></html>";
@@ -490,6 +619,8 @@ void handleLed() {
     else if (mode == "sim") currentLampMode = LAMP_SIM;
     else if (mode == "sim_night") currentLampMode = LAMP_SIM_NIGHT;
     else if (mode == "sim_day") currentLampMode = LAMP_SIM_DAY;
+    else if (mode == "on_night") currentLampMode = LAMP_ON_NIGHT;
+    else if (mode == "on_day") currentLampMode = LAMP_ON_DAY;
     
     preferences.putInt("savedLamp", currentLampMode); 
   }
@@ -664,7 +795,7 @@ void loop() {
 
       if (textWidth > maxDestWidth) {
         if (departures[i].pausing) {
-          if (currentMillis - departures[i].pauseStart > 2000) {
+          if (currentMillis - departures[i].pauseStart > 3000) {
             departures[i].pausing = false;
           }
         } else {
