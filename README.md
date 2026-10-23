@@ -62,4 +62,5 @@ Potřebný hardware:
 POKUD BY SE ALE NĚKOMU POVEDLO PŘIZPŮSOBIT KÓD NA MHD V JEHO MĚSTĚ, URČITĚ SE PODĚLTE! Rád další města začlením do projektu. Pokud máte dotazy nebo vylepšení, kontaktujte mě na: 
 
 info@bojler.org.
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
